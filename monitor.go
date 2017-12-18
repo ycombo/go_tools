@@ -27,6 +27,7 @@ func main() {
 
 */
 
+package go_tools
 
 import (
     "net/http"
