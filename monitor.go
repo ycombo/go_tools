@@ -1,4 +1,32 @@
-package utils
+// Golang Prometheus monitor plugin for QPS and ResponseTime metrics
+//
+// Usage:
+/*
+import (
+    "fmt"
+    "log"
+    "net/http"
+
+    "github.com/ycombo/go_tools"
+
+)
+
+type helloHandler struct{}
+
+func (h helloHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "hello, you've hit %s\n", r.URL.Path)
+}
+
+func main() {
+    handlerFunc := go_tools.CreateMonitorChain(map[string]bool{"all": true},
+                                               helloHandler{},
+                                               config.Configuration.MetricsMonitor == "on")
+     http.Handle("/hello", handlerFunc)
+     log.Fatal(http.ListenAndServe(8010, nil))
+}
+
+*/
+
 
 import (
     "net/http"
