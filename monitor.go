@@ -1,5 +1,8 @@
 // Golang Prometheus monitor plugin for QPS and ResponseTime metrics
 //
+// For more information visit:
+// https://freerecursion.wordpress.com/2017/12/17/%E4%BD%BF%E7%94%A8prometheus%E6%9D%A5%E7%9B%91%E6%8E%A7go-http-server/
+//
 // Usage:
 /******************
 package main
@@ -41,10 +44,12 @@ type monitorManager  struct {
     metricsToMonitor map[string]bool
 }
 
+// Add the default '/metrics' url route path for Prometheus server to pull metrics data.
 func init() {
     http.Handle("/metrics", promhttp.Handler())
 }
 
+// Create a HandlerFunc monitor chain wrapper to get QPS and repsonse time metrics
 func CreateMonitorChain(mtm map[string]bool, hf http.HandlerFunc, useWrapper bool) http.HandlerFunc {
     if !useWrapper{
         return hf
